@@ -1,0 +1,332 @@
+<html>
+<head>
+<style>
+#x{
+color:pink;
+}
+
+</style>
+<script>
+var obj,obj1,m1=0,c=0,w=0,no=0;
+var i=0,j= -1,k;
+var m = 1;
+var s = 59;
+
+var testcheck=new Array().fill("n");
+var temp=new Array();
+for(var i=0; i<10; i++){
+testcheck[i]="n";
+}
+for(var i=0; i<10; i++){
+temp[i]=0;
+}
+
+var a=new Array();
+var ans1=new Array();
+var ans2=new Array();
+var ans3=new Array();
+var ans4=new Array();
+var ans=new Array();
+ans[0]="None";ans[1]="25";ans[2]="86.9";ans[3]="28";ans[4]="8";ans[5]="80";ans[6]="1200";ans[7]="None";ans[8]="84.8";ans[9]="60";
+ans4[0]="None";ans4[1]="None";ans4[2]="None";ans4[3]="None";ans4[4]="None";ans4[5]="None";ans4[6]="None";ans4[7]="None";ans4[8]="None";ans4[9]="None";
+a[0]="A piece of metal weights100gms. in air and 80 gms. in the liquid.If relative density of liquid is 0.8.Find relative density of metal .";
+ans1[0]="5";ans2[0]="3";ans3[0]="6";
+a[1]="A piece of metal weights 150gms. in air and 125gms. in water.Find volume of metal ?";
+ans1[1]="30";ans2[1]="40";ans3[1]="25";
+a[2]="Abody of specific gravity 8.9 weights 97.9gms. in air.What is the weight in water ?";
+ans1[2]="88.1";ans2[2]="85.9";ans3[2]="86.9";
+a[3]="A body weights 63 k.g on the surface of the earth.Find its weight when it is taken to a height half of the redious of earth from earth surface";
+ans1[3]=43;ans2[3]="53";ans3[3]="28";
+a[4]="If a satellite falls from its orbital height R above the earth surface hits ground.Find velocity of satellite in k.m/second.[g=10 s.i unit,R=6400k.m]";
+ans1[4]=8;ans2[4]="10";ans3[4]="12";
+a[5]="A raft of mass 120 kg flots in water.The weight that can be put on the raft to make just sink.The density of raft is 600 S.I UNIT.";
+ans1[5]=80;ans2[5]="110";ans3[5]="90";
+a[6]="A ballon has volume 1000 unit(S.I ).It is filled with hydrogen of density 0.09g/L. If density of air is 1.29g/L.Find the weight it can lift.";
+ans1[6]=1800;ans2[6]="1000";ans3[6]="1200";
+a[7]="A boat having length 3m and breadth 2m is floating on the lake.The boat sinks by 1cm when aman gets on it.Find mass of the man.";
+ans1[7]=80;ans2[7]="70";ans3[7]="65";
+a[8]="An ac source is 120 volt,60Hz.Find voltage after 1/720 second from start.";
+ans1[8]=84.8;ans2[8]="83.8";ans3[8]="85.8";
+a[9]="The half life periord of a radioactive element is 15 years.Find no of years after which 15/16 of the original mass disintegrates.";
+ans1[9]=30;ans2[9]="60";ans3[9]="90";
+
+function watch()
+{
+  
+  document.getElementById("tm").value = m;
+  document.getElementById("ts").value = s;
+
+  s = s - 1;
+  if (s == 0) {
+    s = 59;
+    m = m - 1;
+  }
+  if (m == -1 && s==59)
+  {
+   document.getElementById("ts").value = 0;
+    f();
+    return;
+  }
+ 
+    obj=setTimeout(watch, 1000);
+}
+function f()
+{
+clearTimeout(obj);
+document.getElementById("b3").disabled = false;
+}
+
+function markcalculation()
+{
+var i;
+var c=0;
+var w=0;
+for(i=0; i<10; i++){
+if(temp[i]== 4){c++;}
+if (temp[i]== -1){w++;}
+}
+
+document.getElementById("show1").value=c;document.getElementById("show11").value=(c*4);
+document.getElementById("show2").value=w;document.getElementById("show22").value= -(w *1);
+document.getElementById("show3").value=10 -(c+w);document.getElementById("show33").value=0;
+document.getElementById("show4").value=10 ;document.getElementById("show44").value=( (c*4) - (w*1));
+
+}
+
+
+function fclose()
+ {
+   
+  self.close();
+ }
+
+function tocheck()
+{
+  if(testcheck[j] == "one")
+  {
+    document.getElementById("r1").checked=true;
+    return;
+  }
+
+
+else if(testcheck[j] == "two")
+  {
+    document.getElementById("r2").checked=true;
+    return;
+  }
+else if(testcheck[j] == "three")
+  {
+    document.getElementById("r3").checked=true;
+    return;
+  }
+else if(testcheck[j] == "four")
+  {
+    document.getElementById("r4").checked=true;
+   return;
+  }
+else
+{
+return;
+}
+}
+
+function rbtncheck()
+{
+  document.getElementById("r1").checked=false;
+  document.getElementById("r2").checked=false;
+  document.getElementById("r3").checked=false;
+  document.getElementById("r4").checked=false;
+}
+function f1()
+ {
+    
+    rbtnenabled();
+    rbtncheck();
+    if(j!=9 || j!=0)
+   {
+     document.getElementById("b1").disabled = false;
+     document.getElementById("b2").disabled = false;
+   }
+ 
+  if(j <=8)
+ {
+  j++;
+  tocheck();
+  document.getElementById("t").value=a[j];
+  document.getElementById("t1").value=ans1[j];
+  document.getElementById("t2").value=ans2[j];
+  document.getElementById("t3").value=ans3[j];
+  document.getElementById("t4").value=ans4[j]; 
+  document.getElementById("mark").value=(j+1)+"/"+10;
+  if(j==9)
+  {
+   document.getElementById("b2").disabled = true;
+ 
+  }
+}
+
+
+
+}
+
+function f2()
+ {
+   rbtnenabled();
+   rbtncheck();
+   if(j!=9 || j!=0)
+   {
+     
+     document.getElementById("b1").disabled = false;
+     document.getElementById("b2").disabled = false;
+   }
+  j--;
+  tocheck();
+
+  document.getElementById("t").value=a[j]; 
+  document.getElementById("t1").value=ans1[j];
+  document.getElementById("t2").value=ans2[j];
+  document.getElementById("t3").value=ans3[j];
+  document.getElementById("t4").value=ans4[j]; 
+  document.getElementById("mark").value=(j+1)+"/"+10;
+  if(j==0)
+  {
+   document.getElementById("b1").disabled = true;
+ 
+  }
+ 
+ }
+function start()
+{
+document.getElementById("b2").disabled = false;
+document.getElementById("b").disabled = true;
+document.getElementById("b3").disabled = true;
+document.getElementById("b").style.visibility = "hidden";
+watch()
+
+f1();
+}
+
+function fr(x)
+{
+if(x.value=="one")
+{
+ if(ans[j]==ans1[j])
+ {
+   temp[j]=4;
+ }
+ else
+{
+ temp[j]= -1;
+}
+ 
+ testcheck[j]="one";
+
+rbtndisabled();
+}
+
+else if(x.value=="two")
+{
+if(ans[j]==ans1[j])
+ {
+   temp[j]=4;
+ }
+ else
+{
+ temp[j]= -1;
+}
+testcheck[j]="two";
+
+rbtndisabled();
+
+}
+
+else if(x.value=="three")
+{
+if(ans[j]==ans1[j])
+ {
+   temp[j]=4;
+ }
+ else
+{
+ temp[j]= -1;
+}
+testcheck[j]="three";
+
+rbtndisabled();
+}
+
+else if(x.value=="four")
+{
+ if(ans[j]==ans1[j])
+  {
+   temp[j]=4;
+  }
+ else
+ {
+  temp[j]= -1;
+ }
+ testcheck[j]="four";
+
+ rbtndisabled();
+}
+
+}
+
+
+
+function rbtndisabled()
+{
+  document.getElementById("r1").disabled=true;
+  document.getElementById("r2").disabled=true;
+  document.getElementById("r3").disabled=true;
+  document.getElementById("r4").disabled=true;
+
+}
+function rbtnenabled()
+{
+  document.getElementById("r1").disabled=false;
+  document.getElementById("r2").disabled=false;
+  document.getElementById("r3").disabled=false;
+  document.getElementById("r4").disabled=false;
+
+}
+
+
+</script>
+
+<body >
+Minutes: <input type="text" id="tm" style="background-color:red;color:white;"><br>
+Seconds: <input type="text" id="ts" style="background-color:red;color:white;"><br>
+<div align=center>
+<div align=center>
+<input type=button id="b1" value=PREVIOUS disabled = true onclick=f2() style="background-color:red;color:white;">
+<input type=button id="b2" value=NEXT disabled = true onclick=f1() style="background-color:red;color:white;">
+
+</div>
+QUESTION :<input type=text id="mark"  size=10 style="background-color:burlywood;color:red;" readonly><br>
+<textarea rows=4 cols=50 style="background-color:red;color:white;" readonly id="t"></textarea>
+
+<br>
+
+A <input type=radio id="r1" name=r value=one onclick=fr(this)><input type=text style="background-color:burlywood;color:blue;" id=t1 size=10 readonly ><br><br>
+B <input type=radio id="r2" name=r value=two onclick=fr(this)><input type=text style="background-color:burlywood;color:blue;" id=t2 size=10 readonly ><br><br>
+C <input type=radio id="r3" name=r value=three onclick=fr(this)><input type=text style="background-color:burlywood;color:blue;" id=t3 size=10 readonly ><br><br>
+D <input type=radio id="r4" name=r value=four onclick=fr(this)><input type=text style="background-color:burlywood;color:blue;" id=t4 size=10 readonly ><br><br>
+<input type=button id="b" value=start onclick=start() ><br><br>
+<input type=button id="b3" value=SUBMIT  onclick=markcalculation() style="background-color:green;color:white;">
+<br><br>
+<table>
+<TR><TD>QUESTIONS</TD><TD>NUMBERS</TD><TD>MARKS</TD><TR>
+<tr><td id="x">CORRECT-ANSWERS</td><td><input type=text id="show1" style="background-color:silver;color:green;"  readonly></td><td><input type=text id="show11" style="background-color:silver;color:green;"  readonly></td></tr>
+<tr><td id="x">WRONG-ANSWERS</td><td><input type=text id="show2" style="background-color:silver;color:green;"  readonly></td><td><input type=text id="show22" style="background-color:silver;color:green;"  readonly></td></tr>
+<tr><td id="x">NOT-ATTEMPT</td><td><input type=text id="show3" style="background-color:silver;color:green;"  readonly></td><td><input type=text id="show33" style="background-color:silver;color:green;"  readonly ></td></tr>
+<tr><td id="x">TOTAL-QUESTIONS</td><td><input type=text id="show4" style="background-color:silver;color:green;"  readonly></td><td><input type=text id="show44" style="background-color:silver;color:green;"  readonly></td></tr>
+</table>
+
+<input type=button value=Close onclick=fclose() style="background-color:lightgray;color:red;">
+</div>
+
+
+</p>
+</body>
+</html>
